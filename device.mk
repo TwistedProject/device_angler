@@ -19,13 +19,27 @@
 #
 # Everything in this directory will become public
 
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := device/huawei/angler/franco/zImage
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+PRODUCT_COPY_FILES := \
+    $(LOCAL_KERNEL):kernel
+
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
     device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/fstab.angler:root/fstab.angler \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
-    device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh
+    device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh \
+    device/huawei/angler/init.fk.rc:root/bin/init.fk.rc \
+    device/huawei/angler/init.performance_profiles.rc:root/init.performance_profiles.rc \
+    device/huawei/angler/init.special_power.sh:root/init.special_power.sh \
+    device/huawei/angler/init.supolicy.sh:root/init.supolicy.sh
 
 
 PRODUCT_COPY_FILES += \
