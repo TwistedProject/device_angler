@@ -15,4 +15,5 @@ $SUPOLICY --live \
         "allow init kernel security load_policy" \
         "allow platform_app { untrusted_app init system_app shell kernel ueventd logd vold healthd lmkd servicemanager surfaceflinger rmt per_mgr tee adbd netd debuggerd rild drmserver mediaserver installd keystore qmux perfd qti netmgrd ims imscm zygote gatekeeperd location camera atfwd cnd fingerprintd system_server sdcardd wpa nfc radio isolated_app } dir search" \
         "allow platform_app { untrusted_app init system_app shell kernel ueventd logd vold healthd lmkd servicemanager surfaceflinger rmt per_mgr tee adbd netd debuggerd rild drmserver mediaserver installd keystore qmux perfd qti netmgrd ims imscm zygote gatekeeperd location camera atfwd cnd fingerprintd system_server sdcardd wpa nfc radio isolated_app } file { open read getattr }" \
-	"allow sysfs perfd file write"
+	"allow sysfs perfd file write" \
+	"allow system_server system_server unix_stream_socket ioctl"
